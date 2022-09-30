@@ -8,7 +8,7 @@
     "install-client": "cd josh-ui && npm install",
     "server": "cd vash-api && npm start",
     "client": "cd josh-ui && npm start",
-    "install-dev": "concurrently \"npm run install-server\"\" npm run install-client\"",
+    "install-dev": "concurrently \"npm run install-server\" \" npm run install-client\"",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
