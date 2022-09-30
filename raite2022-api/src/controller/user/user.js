@@ -1,6 +1,11 @@
 const User = require("../../models/user")
 const userSchema = require("../../schemas/userSchema")
 
+
+const LOG_IN = async(req, res) =>{
+    
+}
+
 const ADD_USER = async (req , res) =>{
     try {
         const userInfo = await userSchema.validateAsync(req.body)
@@ -93,5 +98,6 @@ module.exports = {
     ADD_USER,
     SEARCH_USER_BY_NAME,
     UPDATE_USER,
-    DELETE_USER
+    DELETE_USER,
+    LOG_IN
 }
