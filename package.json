@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Xscold/Polite-Joshua.git"
+    "url": "git+https://github.com/Xscold/eto-nagana-na.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Xscold/Polite-Joshua/issues"
+    "url": "https://github.com/Xscold/eto-nagana-na/issues"
   },
-  "homepage": "https://github.com/Xscold/Polite-Joshua#readme",
+  "homepage": "https://github.com/Xscold/eto-nagana-na#readme",
   "dependencies": {
     "concurrently": "^7.4.0",
     "cors": "^2.8.5",
