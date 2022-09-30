@@ -1,10 +1,10 @@
 const express = require("express")
 const sequelize = require("sequelize")
+const cors = require("cors")
 const app = express()
 
-require('dotenv').config()
 
-
+app.use(cors({credentials:true}))
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
