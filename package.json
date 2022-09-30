@@ -6,7 +6,7 @@
   "scripts": {
     "install-server": "cd raite2022-api && npm install",
     "install-client": "cd raite2022-ui && npm install",
-    "server": "raite2022-api && npm start",
+    "server": "cd raite2022-api && npm start",
     "client": "cd raite2022-ui && npm start",
     "install-dev": "concurrently \"npm run install-server\" \" npm run install-client\"",
     "dev": "concurrently \"npm run server\" \"npm run client\""
