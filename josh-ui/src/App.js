@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import React, { useState, UseEffect } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+//Components
+import NavigationBar from './Components/NavigationBar';
+
+//Pages
+import LoginPage from './Pages/Login Page/loginPage'
+import LandingPage from './Pages/Landing Page/landingPage'
+import RegisterPage from './Pages/Register Page/registerPage'
 
 function App() {
+  const [ user, setUser ] = useState(localStorage.getItem('token'))
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <NavigationBar user={user}/>
+    <LandingPage/>
+    </>
   );
 }
 
