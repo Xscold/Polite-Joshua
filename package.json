@@ -1,0 +1,27 @@
+{
+  "name": "polite-joshua",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "cd vash-api && npm install",
+    "install-client": "cd josh-ui && npm install",
+    "server": "cd vash-api && npm start",
+    "client": "cd josh-ui && npm start",
+    "install-dev": "concurrently \"npm run install-server\"\" npm run install-client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xscold/Polite-Joshua.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xscold/Polite-Joshua/issues"
+  },
+  "homepage": "https://github.com/Xscold/Polite-Joshua#readme",
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
+}
