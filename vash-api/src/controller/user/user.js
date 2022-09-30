@@ -30,7 +30,7 @@ const ADD_USER = async (req , res) =>{
 
 const SEARCH_USER_BY_NAME = async (req , res) =>{
     try {
-        const {userName} = req.body
+        const {userName} = req.params
         const findUser = await User.findOne({where:{userName}})
         if(!findUser){
             return res.status(400).send({
