@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/esm/Container';
 
-import login from '../utils/login'
+import createProduct from '../utils/createProduct';
+
 
 const UploadForm = () => {
-    const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
-    
+    const [ productName, setProductName] = useState('')
+    const [ quantity, setQuantity] = useState()
+    const [ imageForm, setImageForm] = useState(null)
+
     const setText = {
-        "password": setPassword,
-        "email": setEmail,
+        "productName": setProductName,
+        "quantity": setQuantity,
   }
 
   const onInputChange = (e) => {
@@ -19,33 +22,57 @@ const UploadForm = () => {
     setText[name](value);
   }
 
-  const loginUser = (event) => {
-    event.preventDefault()
+  // const loginUser = (event) => {
+  //   event.preventDefault()
 
-    login(email,password)
+  //   login(email,password)
+  // }
+
+  const fileShit = (e) => {
+    e.preventDefault();
+    
+    const data = new FormData();
+
+    data.append('name', 'asdfasdf');
+    data.append('quantity', 5);
+    data.append('image', imageForm);
+
+    // (async () => {
+    //     updateProduct(3, data);
+    // })()
+    (async () => {
+      for (const value of data.values()) {
+        console.log(value);
+      }
+        createProduct(data);
+    })()
+
   }
 
   return (
-    <Form onSubmit={loginUser}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" name="email" placeholder="Enter email" value={email} onChange={(e) => onInputChange(e)}/>
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
+    <Container>
+      <Form className="w-75 mx-auto py-2" encType="multipart/form-data">
+
+      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+        <Form.Label value={productName} onChange={(e) => onInputChange(e)}>Product Name</Form.Label>
+        <Form.Control type="text"/>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" name="password"placeholder="Password" value={password} onChange={(e) => onInputChange(e)}/>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Label value={quantity} onChange={(e) => onInputChange(e)}>quantity</Form.Label>
+        <Form.Control type="number"  />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
+      
+      <Form.Group className="mb-3" controlId="formFile" name="image" onChange={(e) => setImageForm(e.target.files[0])}>
+        <Form.Label>File</Form.Label>
+        <Form.Control type="file"/>
       </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
+
     </Form>
+
+    <Button variant="primary" className="mx-auto d-block cyan-900" type="submit" onClick={(e) => fileShit(e)}>Submit</Button>
+    </Container>
+
   )
 }
 
