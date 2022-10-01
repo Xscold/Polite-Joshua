@@ -10,6 +10,9 @@ const ADD_USER = async (req , res) =>{
     try {
         const userInfo = await userSchema.validateAsync(req.body)
         const {userName} = req.body
+        console.log(req.file)
+        const {image} = req.file
+        
         const checkSameUser = await User.findOne({where:{userName}})
         if(checkSameUser){
             
@@ -17,7 +20,7 @@ const ADD_USER = async (req , res) =>{
                 message:"User Already Exist"
             })
         }
-        const createUser = await User.create(userInfo)
+        const createUser = await User.create(userInfo, image)
         if(!createUser){
             return res.status(400).send({
                 message:"Failed to Create User"

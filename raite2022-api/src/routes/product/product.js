@@ -2,6 +2,9 @@ const express = require("express")
 const router = express.Router()
 const PRODUCT_CONTROLLER = require("../../controller/product/product")
 const fileStorageEngine = require("../../middleware/upload")
+const multer = require("multer")
+
+
 
 const upload = multer({storage: fileStorageEngine})
 
